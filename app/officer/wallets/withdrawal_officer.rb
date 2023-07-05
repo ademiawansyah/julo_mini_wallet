@@ -22,6 +22,11 @@ module Wallets
         withdrawal.balance = account.balance - amount
         withdrawal.save
       end
+
+      # NOTE: This method can be improved without directly calculating the balance.
+      # NOTE: We can use the status pending, and then use background job management to calculate the balance
+      # NOTE: At the background job management, after successfully calculate the balance, and update the account balance, should change the transaction status to successful
+      # NOTE: I'm not implementing the background job management because the setup process for it, little bit complicated
     end
 
     def transaction_id

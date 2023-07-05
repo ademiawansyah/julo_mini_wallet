@@ -25,4 +25,6 @@ class Deposit < Transaction
     account.balance = account.balance + amount
     account.save
   end
+
+  # NOTE: This callback method can be removed after implementing background job management
 end
